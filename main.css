@@ -1,0 +1,471 @@
+:root {
+    --font-size-base: 1.6rem;
+    --font-color: black;
+    --bg-color: #f5f5f5;
+    --border-color: silver;
+    --primary-bg: white;
+    --header-bg: #d4e4fc;
+    --padding: 1rem;
+    --padding-for-small-screen: 0.5rem;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color);
+    height: 100vh;  
+}
+
+
+.site-header {                                                     /* Фиксированная шапка */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    z-index: 100;
+}
+
+.container {                                                        /* Контейнер */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.logo {
+    max-width: 15rem;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+.start-button {                                                     /* Кнопка "Начать" */
+    background: blue;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.start-button:hover {
+    background-color: darkblue;
+    transform: scale(1.05);
+}
+
+.menu-toggle {                                                      /* Гамбургер-меню для мобильных */
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 2.5rem;
+    height: 0.3rem;
+    background: black;
+    border-radius: 0.2rem;
+}
+
+
+h1 {
+    background-color: var(--header-bg);
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0;
+    margin: 10rem 0 0 0;
+}
+
+
+article {
+    width: 60%;
+    background-color: var(--primary-bg);
+    margin: 0;
+    padding: var(--padding);  
+    font-size: var(--font-size-base);
+}
+
+
+table {
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    
+}
+
+td, th {
+    border: 0.1rem solid var(--border-color);
+    padding: var(--padding);
+    
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+article img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.reactions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem 5rem; /* Отступ между смайликами */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.reaction {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.reaction img {
+    width: 4rem; /* Размер смайликов */
+    height: auto;
+}
+
+.reaction:hover {
+    transform: scale(1.2);
+}
+
+.related-articles {
+    width: 100%;
+    background-color: var(--header-bg);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.related-articles h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.articles-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.article-card { 
+    flex: 0 0 25%;
+    background-color: var(--primary-bg);
+    text-decoration: none;
+    color: var(--font-color);
+    border-radius: 1rem;
+    scroll-snap-align: center;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.article-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.article-card img {
+    margin: 0;
+    width: 100%;
+    height: auto;    
+}
+
+.article-card h3 {
+    font-size: 1.8rem;
+    padding: 1rem;
+    text-align: left;
+    line-height: 1.2;
+}
+
+
+
+.subscription {
+    width: 100%;
+    background-color: var(--bg-color);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+}
+
+.subscription-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.subscription p {
+    font-size: 1.8rem;
+    margin: 0 2rem;
+    line-height: 1.2;
+}
+
+.subscription-form input {
+    padding: 1rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 25rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+.subscription-form button {
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.subscription-form button:hover {
+    background-color: darkblue;
+}
+
+
+
+footer {
+    background-color: #191c21;                    /* Цвет фона */
+    color: #ffffff;                               /* Цвет текста */
+    width: 100%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;             /* Три колонки */
+    gap: 2rem;
+    align-items: start;
+    padding: 5rem 10rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1.4rem;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: max-content max-content;           /* Узкие колонки по содержимому */
+    gap: 5px 15px;                                            /* Отступы: 5px по вертикали, 15px по горизонтали */
+    text-align: left;
+}
+
+.footer-links a {
+    color: white;                                           /* Цвет ссылок */
+    text-decoration: none;                                    /* Убираем подчеркивание */
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;                                        /* Центрирование */
+    gap: 1rem;                                                  /* Расстояние между иконкой и текстом */
+}
+
+.footer-column img {
+    width: 10rem;                                                /* Задаем разумный размер */
+    height: auto;
+}
+
+.rc-img {
+    margin-top: 1.5rem;
+}
+
+.footer-logo img {
+    width: 20rem;
+    height: auto;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    border-top: 0.2rem solid #fff;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    margin: 0 10rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        margin: auto;
+    }
+
+    .start-button {
+        margin-left: 7rem;
+        margin-right: 0;
+    }
+
+
+    article {
+        width: 90%;                                          /* Делаем ширину более адаптивной */
+    }
+
+    h1 {
+        font-size: 3.5rem;                                   /* Увеличиваем размер заголовка */
+        padding: 2.5rem 0;
+    }
+
+    html {
+        font-size: 55%;                                      /* Немного уменьшаем базовый размер */
+    }
+
+    table {
+        width: 100%;                                          /* Чтобы таблица не выходила за границы экрана */
+        overflow-x: auto;
+    }
+
+    .articles-container {
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+
+    .article-card {
+        flex: 0 0 80%;
+    }
+
+
+
+    .subscription {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .subscription-form {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .subscription p {
+        margin: 2rem 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Одна колонка на всю ширину */
+        gap: 20px;
+        padding: 2rem 5rem; /* Можно уменьшить отступы */
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;       
+        margin: 0;
+
+        
+    }
+
+    .footer-bottom div {
+        text-align: center;                  /* Выравнивание по центру (по желанию) */
+        max-width: 50%;                      /* Ограничение ширины для удобочитаемости */
+        margin: 1rem auto;                   /* Центрирование */
+    }
+
+}
+
+@media (max-width: 340px) {
+    html {
+        font-size: 50%;                                       /* Уменьшаем базовый размер, но оставляем текст читабельным */
+    }
+
+    h1 {
+        font-size: 3rem;
+        padding: 2rem 0;
+    }
+
+    article {
+        width: 95%;
+        padding: var(--padding-for-small-screen);            /* Уменьшаем отступы */
+    }
+
+    td, th {
+        padding: var(--padding-for-small-screen);            /* Делаем ячейки таблицы компактнее */
+    }
+
+    .article-card {
+        flex: 0 0 90%;
+    }
+
+}
